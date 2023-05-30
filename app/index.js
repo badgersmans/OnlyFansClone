@@ -1,3 +1,4 @@
+import { FlatList } from "react-native";
 import users from "../assets/data/users";
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from "../Index.Styles";
@@ -9,8 +10,12 @@ export default function Page() {
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
-        <UserCard user={users[0]}/>
-        <UserCard user={users[1]}/>
+          <FlatList 
+            data={users}
+            renderItem={({ item }) => <UserCard user={item} /> }
+            key={users.id}
+            showsVerticalScrollIndicator={false}
+          />
       </SafeAreaView>
     </SafeAreaProvider>
   );
