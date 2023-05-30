@@ -1,4 +1,4 @@
-import { FlatList } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import users from "../assets/data/users";
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from "../Index.Styles";
@@ -9,13 +9,14 @@ export default function Page() {
 
   return (
     <SafeAreaProvider style={styles.container}>
-      <SafeAreaView>
-          <FlatList 
-            data={users}
-            renderItem={({ item }) => <UserCard user={item} /> }
-            key={users.id}
-            showsVerticalScrollIndicator={false}
-          />
+      <SafeAreaView style={{flex: 1}}>
+        <FlashList 
+          data={users}
+          renderItem={({ item }) => <UserCard user={item} /> }
+          key={users.id}
+          showsVerticalScrollIndicator={false}
+          estimatedItemSize={20}
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
