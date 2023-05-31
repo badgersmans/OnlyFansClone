@@ -36,8 +36,9 @@ const Post = ({post}) => {
                     <MaterialCommunityIcons name="dots-horizontal" size={25} color="grey" />
                 </Pressable>
             </View>
-
         </View>
+
+        <Text style={styles.postDesc}>{post.text}</Text>
 
         <Image 
             source={post.image}

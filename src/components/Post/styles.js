@@ -40,7 +40,13 @@ const styles = StyleSheet.create({
     },
     timestamp: {
         marginRight: 10
-    }
+    },
+    postDesc: {
+        fontSize: 20,
+        lineHeight: 25,
+        marginLeft: 10,
+        marginVertical: 10,
+    },
 });
 
 export default styles;
