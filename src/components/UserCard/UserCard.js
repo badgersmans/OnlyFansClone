@@ -22,9 +22,9 @@ const UserCard = ({user}) => {
           <Image 
             source={user.avatar}
             style={styles.image}
-            contentFit="contain"
+            contentFit="cover"
             placeholder={blurhash}
-            transition={400}
+            transition={200}
           />
 
           {/* Name and Handle */}
