@@ -73,9 +73,19 @@ const Post = ({post}) => {
                         styles.actionButton,
                         { opacity: pressed ? 0.5 : 1 },
                     ]}>
-
                     <MaterialIcons name="attach-money" size={30} color="lightgrey" style={{ borderWidth: 1, borderColor: 'lightgrey', borderRadius: 20 }}/>
                 </Pressable>
+
+                {/* <Pressable 
+                    style={({ pressed }) => [
+                        styles.actionButton,
+                        { opacity: pressed ? 0.5 : 1 },
+                    ]}>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <MaterialIcons name="attach-money" size={30} color="lightgrey" style={{ borderWidth: 1, borderColor: 'lightgrey', borderRadius: 20 }}/>
+                            <Text style={{marginLeft: 10, textTransform: 'capitalize', fontWeight: '600'}}>send tip</Text>
+                        </View>
+                </Pressable> */}
             </View>
 
             <Text style={styles.likeText}>{post.likes > 1 ? `${post.likes} likes`: ` ${post.likes} like`}</Text>
