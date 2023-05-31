@@ -1,6 +1,6 @@
 import { View, Text, ImageBackground, Platform, Pressable } from 'react-native'
 import { Image } from 'expo-image';
-import React, { useState } from 'react'
+import React from 'react'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './styles';
@@ -9,11 +9,10 @@ import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 const iosIcon = <Ionicons name="ios-share-outline" style={styles.icon} />
 const androidIcon = <SimpleLineIcons name="share-alt" style={styles.icon} />
 
-const UserProfileHeader = ({ user }) => {
+const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed}) => {
     const blurhash =
     '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
     const router = useRouter();
-    const [isSubscribed, setIsSubscribed] = useState(false)
 
 
   return (
