@@ -2,7 +2,7 @@ import { View, Text, Pressable } from 'react-native'
 import React from 'react'
 import styles from './styles'
 import { Image } from 'expo-image';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons, EvilIcons, MaterialIcons } from '@expo/vector-icons';
 
 
 const Post = ({post}) => {
@@ -47,6 +47,39 @@ const Post = ({post}) => {
             placeholder={blurhash}
             transition={200}
         />
+
+        <View style={styles.buttonsContainer}>
+            <View style={{flexDirection: 'row'}}>
+                <Pressable 
+                    style={({ pressed }) => [
+                        styles.actionButton,
+                        { opacity: pressed ? 0.5 : 1 },
+                    ]}>
+
+                    <Ionicons name="ios-heart" size={30} color="#4EADEA" />
+                </Pressable>
+
+                <Pressable 
+                    style={({ pressed }) => [
+                        styles.actionButton,
+                        { opacity: pressed ? 0.5 : 1 },
+                    ]}>
+
+                    <EvilIcons name="comment" size={40} color="lightgrey" />
+                </Pressable>
+
+                <Pressable 
+                    style={({ pressed }) => [
+                        styles.actionButton,
+                        { opacity: pressed ? 0.5 : 1 },
+                    ]}>
+
+                    <MaterialIcons name="attach-money" size={30} color="lightgrey" style={{ borderWidth: 1, borderColor: 'lightgrey', borderRadius: 20 }}/>
+                </Pressable>
+            </View>
+
+            <Text style={styles.likeText}>{post.likes > 1 ? `${post.likes} likes`: ` ${post.likes} like`}</Text>
+        </View>
     </View>
   )
 }

@@ -47,6 +47,24 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginVertical: 10,
     },
+    buttonsContainer: {
+        padding: 10,
+        // flexDirection: 'row',
+        // backgroundColor: 'yellow'
+    },
+    likeText: {
+        fontWeight: 'bold',
+        fontSize: 16,
+        marginHorizontal: 5
+    },
+    actionButton: {
+        padding : 5,
+        // flexDirection: 'row',
+        // width: '15%',
+        // backgroundColor: 'red',
+        alignItems: 'center',
+        
+    }
 });
 
 export default styles;
