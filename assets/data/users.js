@@ -7,7 +7,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
     name: 'Elon',
     handle: 'elon',
-    bio: 'hello',
+    bio: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio ea quas commodi eaque repellendus dignissimos eos temporibus ab consequatur at?',
     subscriptionPrice: 0,
   },
   {
@@ -18,7 +18,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg',
     name: 'Jeff',
     handle: 'jeff',
-    bio: 'hello',
+    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt maiores ad doloribus esse quasi sapiente quisquam, cupiditate animi optio rerum?',
     subscriptionPrice: 4.99,
   },
   {
@@ -29,7 +29,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/biahaze.jpg',
     name: 'Biahaze',
     handle: 'biahaze',
-    bio: 'hello',
+    bio: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam sunt aut, praesentium dicta repudiandae quisquam commodi quas maxime eum earum?',
     subscriptionPrice: 2.99,
   },
   {
@@ -40,7 +40,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
     name: 'Elon',
     handle: 'elon2',
-    bio: 'hello',
+    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum corrupti quasi maxime nihil obcaecati quia hic a facere provident libero.',
     subscriptionPrice: 1.99,
   },
   {
@@ -51,7 +51,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/graham.jpg',
     name: 'Graham',
     handle: 'graham',
-    bio: 'hello',
+    bio: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo exercitationem atque similique laudantium, recusandae beatae culpa tempora totam soluta enim!',
     subscriptionPrice: 0,
   },
   {
@@ -62,7 +62,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg',
     name: 'Jeff',
     handle: 'jeff2',
-    bio: 'hello',
+    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, atque. Consequuntur libero, quo eaque commodi unde asperiores numquam nobis necessitatibus!',
     subscriptionPrice: 3.99,
   },
   {
@@ -73,7 +73,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
     name: 'Vadim',
     handle: 'vadim',
-    bio: 'hello',
+    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus consectetur molestias distinctio asperiores numquam incidunt ullam et, voluptatem consequuntur.',
     subscriptionPrice: 1.99,
   },
   {
@@ -84,7 +84,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim1.JPG',
     name: 'Vadim',
     handle: 'vadim2',
-    bio: 'hello',
+    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem minima officia iste, labore illum maiores necessitatibus earum distinctio a unde.',
     subscriptionPrice: 0,
   },
 ];

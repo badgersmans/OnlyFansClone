@@ -1,6 +1,6 @@
-import { View, Text, ImageBackground, Platform } from 'react-native'
+import { View, Text, ImageBackground, Platform, Pressable } from 'react-native'
 import { Image } from 'expo-image';
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter, useSearchParams } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import users from '../../assets/data/users';
@@ -11,6 +11,7 @@ import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 const ProfilePage = () => {
   const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
+  const [isSubscribed, setIsSubscribed] = useState(false)
 
   const router = useRouter();
   const { id } = useSearchParams();
@@ -52,6 +53,7 @@ const ProfilePage = () => {
         </SafeAreaView>
       </ImageBackground>
 
+    <View style={styles.headerContainer}>
       <View style={styles.imageContainer}>
         <Image 
           source={user.avatar}
@@ -60,9 +62,44 @@ const ProfilePage = () => {
           placeholder={blurhash}
           transition={200}
         />
-          {Platform.OS === 'ios' ? iosIcon : androidIcon}
-
+        
+          <Pressable style={({ pressed }) => [
+            {},
+            { opacity: pressed ? 0.5 : 1 },
+          ]}>
+            {Platform.OS === 'ios' ? iosIcon : androidIcon}
+          </Pressable>
+        
       </View>
+
+      
+      <Text style={styles.name}>{user.name}</Text>
+      <Text style={styles.handle}>@{user.handle}</Text>
+      <Text style={styles.bio}>{user.bio}</Text>
+      <Text style={styles.sub}>SUBSCRIPTION</Text>
+      
+      <Pressable 
+        style={({ pressed }) => [
+          styles.subButtons,
+          { backgroundColor: isSubscribed ? 'white' : '#4EADEA' },
+          { opacity: pressed ? 0.5 : 1 },
+        ]}
+        onPress={() => setIsSubscribed(!isSubscribed)}
+      >
+        <Text 
+          style={[styles.buttonText, { color: isSubscribed ? '#4EADEA' : 'white' }]}
+        >
+          { isSubscribed ? `subscribed` : `subscribe` }
+        </Text>
+
+        <Text 
+          style={[styles.buttonText, { color: isSubscribed ? '#4EADEA' : 'white' }]}
+        >
+          {user.subscriptionPrice === 0 ? `for free` : `RM ${user.subscriptionPrice} / month`}
+        </Text>
+      </Pressable>
+
+    </View>
 
     </View>
 

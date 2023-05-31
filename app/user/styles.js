@@ -52,12 +52,15 @@ const styles = StyleSheet.create({
         // fontSize: 20,
         marginHorizontal: 10,
     },
+    headerContainer: {
+        marginHorizontal: 15,
+        // backgroundColor: 'red',
+    },
     imageContainer: {
         // backgroundColor: 'red',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-        marginHorizontal: 15,
         marginTop: -50
     },
     image: {
@@ -77,6 +80,52 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 8
     },
+    profileInfo: {
+        marginTop: 15,
+        // backgroundColor: 'red'
+    },
+    name: {
+        fontWeight: 'bold',
+        fontSize: 30,
+        marginBottom: 5,
+        marginTop: 15,
+    },
+    handle: {
+        fontSize: 17,
+        color: 'grey',
+        marginBottom: 20,
+    },
+    bio: {
+        lineHeight: 25,
+        fontSize: 17,
+        marginBottom: 50,
+    },
+    sub: {
+        textTransform: 'uppercase',
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'grey'
+    },
+    subButtons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 20,
+        // backgroundColor: 'red',
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        borderRadius: 50,
+        marginTop: 30
+    },
+    buttonText: {
+        color: '#4EADEA',
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        fontSize: 16
+        // border
+    },
+
+
   });
 
 export default styles;
