@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       borderRadius: 10,
       overflow: 'hidden',
-      marginBottom: 20,
+      marginVertical: 10,
       // position: 'relative'
     },
     nameHandleContainer: {

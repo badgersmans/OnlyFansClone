@@ -5,6 +5,14 @@
       "bundler": "metro"
     },
     "name": "OnlyFansClone",
-    "slug": "OnlyFansClone"
+    "slug": "OnlyFansClone",
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos"
+        }
+      ]
+    ]
   }
 }
