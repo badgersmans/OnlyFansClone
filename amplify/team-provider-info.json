@@ -10,6 +10,11 @@
       "StackName": "amplify-onlyfansnjd-staging-24816",
       "StackId": "arn:aws:cloudformation:us-east-1:234971053754:stack/amplify-onlyfansnjd-staging-24816/c2c239d0-0026-11ee-ae2d-12c27cd68eb3",
       "AmplifyAppId": "d2gdafvhxxwu7r"
+    },
+    "categories": {
+      "auth": {
+        "onlyfansnjd": {}
+      }
     }
   }
 }
