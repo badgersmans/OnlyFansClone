@@ -5,6 +5,9 @@ import { useRouter } from 'expo-router'
 import { SimpleLineIcons, FontAwesome5, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { Image } from 'expo-image';
+import { DataStore } from 'aws-amplify';
+import { Post } from '../src/models'
+import { useAuthenticator } from '@aws-amplify/ui-react-native'
 
 const NewPost = () => {
   const router = useRouter();
@@ -12,9 +15,16 @@ const NewPost = () => {
   const [image, setImage] = useState(null);
   const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
+  const { user: { attributes } } = useAuthenticator();
 
-  const onPost = () => {
-    console.warn('post...')
+  const onPost = async () => {
+    // console.log(attributes.sub)
+    // console.warn('post...')
+    await DataStore.save(new Post({
+      text: userInput,
+      likes: 0,
+      userID: attributes.sub
+    }));
 
     setUserInput('')
   }

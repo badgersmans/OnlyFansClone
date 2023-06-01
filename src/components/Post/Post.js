@@ -1,11 +1,19 @@
 import { View, Text, Pressable } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles'
 import { Image } from 'expo-image';
 import { MaterialCommunityIcons, Ionicons, EvilIcons, MaterialIcons } from '@expo/vector-icons';
+import { DataStore } from "aws-amplify";
+import { User } from '../../models'
 
 
-const Post = ({post}) => {
+const Post = ({ post }) => {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        DataStore.query(User, post.userID).then(setUser)
+    }, [])
+
     const blurhash =
     '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
@@ -13,7 +21,7 @@ const Post = ({post}) => {
     <View style={{marginVertical: 20}}>
         <View style={styles.postHeaderContainer}>
             <Image 
-                source={post.User.avatar}
+                source={user?.avatar}
                 style={styles.profileImage}
                 contentFit="cover"
                 placeholder={blurhash}
@@ -21,8 +29,8 @@ const Post = ({post}) => {
             />
 
             <View style={styles.userContainer}>
-                <Text style={styles.nameText}>{post.User.name}</Text>
-                <Text style={styles.handleText}>@{post.User.handle}</Text>
+                <Text style={styles.nameText}>{user?.name}</Text>
+                <Text style={styles.handleText}>@{user?.handle}</Text>
             </View>
 
             <View style={styles.rightContainer}>
@@ -40,6 +48,7 @@ const Post = ({post}) => {
 
         <Text style={styles.postDesc}>{post.text}</Text>
 
+        {post.image && (
         <Image 
             source={post.image}
             style={styles.image}
@@ -47,6 +56,7 @@ const Post = ({post}) => {
             placeholder={blurhash}
             transition={200}
         />
+        )}
 
         <View style={styles.buttonsContainer}>
             <View style={{flexDirection: 'row'}}>

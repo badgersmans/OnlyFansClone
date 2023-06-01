@@ -4,7 +4,6 @@ type Post @model @auth(rules: [{allow: public}]) {
   image: String
   likes: Int!
   userID: ID! @index(name: "byUser")
-  User: User @belongsTo(fields: ["userID"])
 }
 
 type User @model @auth(rules: [{allow: public}]) {

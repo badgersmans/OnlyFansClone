@@ -1,24 +1,27 @@
 import { Text, Pressable, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'expo-router'
-import posts from '../../assets/data/posts';
 import UserProfileHeader from '../../src/components/UserProfileHeader/UserProfileHeader';
 import Post from '../../src/components/Post/Post';
 import { FlashList } from "@shopify/flash-list";
 import { Ionicons } from '@expo/vector-icons';
 import { DataStore } from "aws-amplify";
-import { User } from '../../src/models'
+import { User, Post as PostModel } from '../../src/models'
 
 const ProfilePage = () => {
 
   const [user, setUser] = useState(null);
+  const [posts, setPosts] = useState(null);
 
   const { id } = useSearchParams();
   const [isSubscribed, setIsSubscribed] = useState(false)
 
   useEffect(() => {
     DataStore.query(User, id).then(setUser);
+    DataStore.query(PostModel, (post) => post.userID.eq(id)).then(setPosts);
+
   }, [id])
+  console.log(posts)
 
   // const user = users.find(u => u.id === id)
   if(!user) return <Text>User not found</Text>
@@ -60,7 +63,7 @@ const ProfilePage = () => {
   return (
       <FlashList 
         data={posts}
-        renderItem={({ item }) => <Post post={item}/> }
+        renderItem={({ item }) => <Post post={item} /> }
         key={posts.id}
         showsVerticalScrollIndicator={false}
         estimatedItemSize={10}
