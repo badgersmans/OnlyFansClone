@@ -5,9 +5,10 @@ import { useRouter } from 'expo-router'
 import { SimpleLineIcons, FontAwesome5, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { Image } from 'expo-image';
-import { DataStore } from 'aws-amplify';
+import { DataStore, Storage } from 'aws-amplify';
 import { Post } from '../src/models'
 import { useAuthenticator } from '@aws-amplify/ui-react-native'
+import * as Crypto from 'expo-crypto';
 
 const NewPost = () => {
   const router = useRouter();
@@ -15,18 +16,36 @@ const NewPost = () => {
   const [image, setImage] = useState(null);
   const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
-  const { user: { attributes } } = useAuthenticator();
+  const { user } = useAuthenticator();
 
   const onPost = async () => {
     // console.log(attributes.sub)
     // console.warn('post...')
+    const imageUUID = await uploadImage();
+
     await DataStore.save(new Post({
       text: userInput,
       likes: 0,
-      userID: attributes.sub
+      userID: user.attributes.sub,
+      image: imageUUID,
     }));
-
     setUserInput('')
+    setImage(null)
+  }
+
+  async function uploadImage() {
+    try {
+      const uuid = `${Crypto.randomUUID()}.jpeg`;
+      const response = await fetch(image);
+      const blob = await response.blob();
+      await Storage.put(uuid, blob, {
+        contentType: 'image/jpeg' // contentType is optional
+      });
+
+      return uuid;
+    } catch (err) {
+      console.log('Error uploading file:', err);
+    }
   }
 
   const selectImage = async () => {

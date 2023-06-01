@@ -3,16 +3,23 @@ import React, { useEffect, useState } from 'react'
 import styles from './styles'
 import { Image } from 'expo-image';
 import { MaterialCommunityIcons, Ionicons, EvilIcons, MaterialIcons } from '@expo/vector-icons';
-import { DataStore } from "aws-amplify";
+import { DataStore, Storage } from "aws-amplify";
 import { User } from '../../models'
 
 
 const Post = ({ post }) => {
     const [user, setUser] = useState(null);
+    const [imageURI, setImageURI] = useState('');
 
     useEffect(() => {
         DataStore.query(User, post.userID).then(setUser)
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        if(post.image) {
+            Storage.get(post.image).then(setImageURI)
+        }
+    }, [post.image])
 
     const blurhash =
     '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
@@ -48,9 +55,9 @@ const Post = ({ post }) => {
 
         <Text style={styles.postDesc}>{post.text}</Text>
 
-        {post.image && (
+        {imageURI && (
         <Image 
-            source={post.image}
+            source={imageURI}
             style={styles.image}
             contentFit="cover"
             placeholder={blurhash}
