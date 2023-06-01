@@ -1,14 +1,21 @@
 import { Text } from "react-native";
 import { FlashList } from "@shopify/flash-list";
-import users from "../assets/data/users";
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from "../Index.Styles";
 import UserCard from "../src/components/UserCard/UserCard";
 import { Link } from "expo-router";
 import { useAuthenticator } from '@aws-amplify/ui-react-native';
+import { useEffect, useState } from "react";
+import { DataStore } from "aws-amplify";
+import { User } from '../src/models'
 
 export default function Page() {
-  const { signOut } = useAuthenticator()
+  const { signOut } = useAuthenticator();
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    DataStore.query(User).then(setUsers);
+  }, [])
 
   return (
     <SafeAreaProvider style={styles.container}>

@@ -149,8 +149,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "subPrice": {
-                    "name": "subPrice",
+                "subscriptionPrice": {
+                    "name": "subscriptionPrice",
                     "isArray": false,
                     "type": "Float",
                     "isRequired": true,
@@ -218,5 +218,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.3",
-    "version": "1b44c0165b24285dd014235684d9b9e5"
+    "version": "57165e3f7fb2138b3a4237506f07812d"
 };

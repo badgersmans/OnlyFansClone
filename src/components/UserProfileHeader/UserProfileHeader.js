@@ -67,7 +67,7 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed}) => {
         
         <Text style={styles.name}>{user.name}</Text>
         <Text style={styles.handle}>@{user.handle}</Text>
-        <Text style={styles.bio}>{user.bio}</Text>
+        <Text style={styles.bio} numberOfLines={3}>{user.bio}</Text>
         <Text style={styles.sub}>SUBSCRIPTION</Text>
         
         <Pressable 
@@ -87,7 +87,7 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed}) => {
           <Text 
             style={[styles.buttonText, { color: isSubscribed ? '#4EADEA' : 'white' }]}
           >
-            {user.subscriptionPrice === 0 ? `for free` : `RM ${user.subscriptionPrice} / month`}
+            {user.subscriptionPrice === 0 ? `for free` : `RM ${user.subscriptionPrice?.toFixed(2)} / month`}
           </Text>
         </Pressable>
 

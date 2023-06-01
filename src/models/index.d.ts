@@ -53,7 +53,7 @@ type EagerUser = {
   readonly name: string;
   readonly handle: string;
   readonly bio?: string | null;
-  readonly subPrice: number;
+  readonly subscriptionPrice: number;
   readonly Posts?: (Post | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -70,7 +70,7 @@ type LazyUser = {
   readonly name: string;
   readonly handle: string;
   readonly bio?: string | null;
-  readonly subPrice: number;
+  readonly subscriptionPrice: number;
   readonly Posts: AsyncCollection<Post>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
