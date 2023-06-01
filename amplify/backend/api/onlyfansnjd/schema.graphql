@@ -1,0 +1,19 @@
+type Post @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  text: String!
+  image: String
+  likes: Int!
+  userID: ID! @index(name: "byUser")
+  User: User @belongsTo(fields: ["userID"])
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  coverImage: String
+  avatar: String
+  name: String!
+  handle: String!
+  bio: String
+  subPrice: Float!
+  Posts: [Post] @hasMany(indexName: "byUser", fields: ["id"])
+}
